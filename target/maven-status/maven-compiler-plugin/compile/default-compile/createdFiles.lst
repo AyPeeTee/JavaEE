@@ -1,0 +1,4 @@
+AyPeeTee\entities\PostEntity.class
+AyPeeTee\ApiConfing.class
+AyPeeTee\managers\PostsManager.class
+AyPeeTee\resources\PostsResource.class
