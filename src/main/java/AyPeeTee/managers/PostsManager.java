@@ -9,8 +9,12 @@ public class PostsManager {
 
     private ArrayList<PostEntity> postEntities = new ArrayList<>();
 
-    public ArrayList<PostEntity> get() {
+    public ArrayList<PostEntity> getAll() {
         return postEntities;
+    }
+
+    public PostEntity get(int id) {
+        return postEntities.get(id);
     }
 
     public void create(PostEntity post) {

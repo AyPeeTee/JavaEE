@@ -16,8 +16,14 @@ public class PostsResource {
     private PostsManager postsManager;
 
     @GET
+    @Path("getAll")
     public Response getAll() {
-        return Response.ok(postsManager.get()).build();
+        return Response.ok(postsManager.getAll()).build();
+    }
+
+    @GET
+    public Response get(@QueryParam("id") int id) {
+        return Response.ok(postsManager.get(id)).build();
     }
 
     @POST
@@ -27,16 +33,14 @@ public class PostsResource {
     }
 
     @PUT
-    @Path("{id}")
-    public Response update(@PathParam("id") int id, PostEntity post) {
+    public Response update(@QueryParam("id") int id, PostEntity post) {
         postsManager.update(post, id);
         return Response.ok().build();
     }
 
     @DELETE
-    @Path("{id}")
-    public Response delete(@PathParam("id") int id) {
-        postsManager.delete(id - 1);
-        return Response.ok().build();
+    public Response delete(@QueryParam("id") int id) {
+        postsManager.delete(id);
+        return Response.ok("Done.").build();
     }
 }
